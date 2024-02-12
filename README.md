@@ -1,4 +1,5 @@
 # Electric-Eels
+This is a repository keeping track of in-class examples. In the end there will be a collection of examples as well as a rendering of the mini game from the book (Learning C# by Developing Games with Unity 2021 : Kickstart Your C# Programming and Unity Journey by Building 3D Games from Scratch)
 
 ## Links
 
