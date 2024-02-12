@@ -3,7 +3,7 @@
 ## Links
 
 - [3D implementation GitHub](https://github.com/manno-xx/Electric-Eels) 
-Github repository with all(?) the stuff from class.
+<br />Github repository with all(?) the stuff from class.
 
 - [3D Implementation Trello board](https://trello.com/invite/b/79tZtTeq/ATTI17a76cf918cd2c36239c62f1df2cfb475D9E5C03/p3d-gtv1e) 
 Trello board with class progress. Sort of one sprint per week.
