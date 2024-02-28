@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 /// <summary>
 /// Class to keep track of health
@@ -6,14 +8,17 @@ using UnityEngine;
 /// </summary>
 public class Health : MonoBehaviour
 {
-    
-    [SerializeField] private float CurrentHealth = 0;
-    [SerializeField] private float MaxHealth = 100;    
+    [SerializeField] private float currentHealth = 0;
+    [SerializeField] private float maxHealth = 100;
+
+    [SerializeField] private UnityEvent<float> healthChanged;
+    [SerializeField] private UnityEvent gameOver;
     
     // Start is called before the first frame update
     void Start()
     {
-        CurrentHealth = MaxHealth;
+        currentHealth = maxHealth;
+        BroadcastEvents();
     }
 
     /// <summary>
@@ -32,8 +37,21 @@ public class Health : MonoBehaviour
     /// <param name="damageDone"></param>
     public void DoDamage(int damageDone)
     {
-        CurrentHealth -= damageDone;
+        currentHealth -= damageDone;
         
         // todo: let 'the world' know the stats have changed. (to update the HUD)
+        BroadcastEvents();
+    }
+
+    /// <summary>
+    /// Send out message on health stats
+    /// </summary>
+    private void BroadcastEvents()
+    {
+        healthChanged?.Invoke(currentHealth/maxHealth);
+        if (currentHealth <= 0)
+        {
+            gameOver?.Invoke();
+        }
     }
 }
